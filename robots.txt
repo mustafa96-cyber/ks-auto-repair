@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ks-auto-repair.vercel.app/sitemap.xml

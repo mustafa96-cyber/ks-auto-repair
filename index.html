@@ -4,8 +4,55 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>K & S Auto Repair · Fullerton · Brake, Light & Smog Station</title>
-<meta name="description" content="K & S Auto Repair in Fullerton. Licensed brake, light and smog station plus full auto repair. Pick a service and request it in one tap. Call (714) 680 6205.">
+<meta name="description" content="K & S Auto Repair in Fullerton, CA. Licensed brake, light and smog station plus transmission and full auto repair. Pick a service and request it in one tap. Call (714) 680 6205.">
+<meta name="keywords" content="auto repair Fullerton, smog check Fullerton, brake repair, transmission repair, wheel alignment, Uber Lyft inspection, STAR smog station, oil change Fullerton">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://ks-auto-repair.vercel.app/">
+<meta name="geo.region" content="US-CA"><meta name="geo.placename" content="Fullerton, California">
+<meta name="theme-color" content="#0b1f3a">
+<!-- Open Graph / social -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="K & S Auto Repair">
+<meta property="og:title" content="K & S Auto Repair · Fullerton Brake, Light & Smog Station">
+<meta property="og:description" content="Honest auto repair, transmission work, and smog checks in Fullerton, CA. Pick a service and request it in one tap. Call (714) 680 6205.">
+<meta property="og:url" content="https://ks-auto-repair.vercel.app/">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="K & S Auto Repair · Fullerton, CA">
+<meta name="twitter:description" content="Honest auto repair, transmission, and smog checks in Fullerton. Pick a service, request it in one tap.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='11' fill='%230b2545'/%3E%3Ctext x='24' y='32' font-family='Arial' font-size='20' font-weight='bold' fill='%23fff' text-anchor='middle'%3EK%26S%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"AutoRepair",
+  "@id":"https://ks-auto-repair.vercel.app/#business",
+  "name":"K & S Auto Repair",
+  "url":"https://ks-auto-repair.vercel.app/",
+  "image":"https://ks-auto-repair.vercel.app/images/lee.jpg",
+  "telephone":"+1-714-680-6205",
+  "description":"Licensed brake, light and smog station plus transmission and full auto repair in Fullerton, CA. ASE Certified.",
+  "address":{"@type":"PostalAddress","streetAddress":"2430 W Orangethorpe Ave","addressLocality":"Fullerton","addressRegion":"CA","postalCode":"92833","addressCountry":"US"},
+  "geo":{"@type":"GeoCoordinates","latitude":33.8687,"longitude":-117.9736},
+  "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"18:00"}],
+  "sameAs":["https://www.yelp.com/biz/k-and-s-auto-repair-fullerton"],
+  "areaServed":["Fullerton","Anaheim","Buena Park","Placentia","La Habra","Brea","Orange County"],
+  "founder":{"@type":"Person","name":"Kwon Lee","jobTitle":"ASE Certified Technician"},
+  "hasOfferCatalog":{"@type":"OfferCatalog","name":"Auto services","itemListElement":[
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Oil Changes"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Brake Repair"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Engine Repair"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Transmission Repair"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Fluids and Filters Maintenance"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"AC and HVAC Repair"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Steering and Suspension Repair"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Wheel Alignment"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Smog Check"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Uber and Lyft Inspection"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Transmission Leak Inspection"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Routine Automotive Maintenance"}}
+  ]}
+}
+</script>
 <script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js", "three/": "https://unpkg.com/three@0.160.0/" } }</script>
 <style>
 :root{
@@ -81,13 +128,18 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop
 .sbtn.cl{background:#fff;color:var(--navy);border:1.5px solid var(--line)}
 .sbtn.cl:hover{border-color:var(--navy)}
 
-/* steps */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.step{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:2px;box-shadow:var(--shadow)}
-.step .sn{width:36px;height:36px;border-radius:50%;background:var(--red);color:#fff;font-weight:900;display:grid;place-items:center;margin-bottom:10px;font-size:1.05rem}
-.step b{color:var(--navy);font-size:1.12rem}
-.step span:last-child{color:var(--muted);font-size:.93rem}
-@media(max-width:860px){.steps{grid-template-columns:1fr}}
+/* how it works band */
+.howband{background:linear-gradient(135deg,#0b1f3a,#12325c);border-radius:22px;padding:30px 34px;box-shadow:var(--shadow-lg);color:#fff}
+.how-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+.how-head .kick{color:#ff8a92;font-weight:800;letter-spacing:.16em;text-transform:uppercase;font-size:.78rem}
+.how-head h3{font-size:1.4rem;font-weight:900;letter-spacing:-.4px;color:#fff}
+.how-flow{display:flex;align-items:stretch;gap:14px}
+.hstep{flex:1;display:flex;align-items:flex-start;gap:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:16px 18px}
+.hstep .hn{width:32px;height:32px;flex-shrink:0;border-radius:50%;background:var(--red);color:#fff;font-weight:900;display:grid;place-items:center;font-size:1rem}
+.hstep b{display:block;color:#fff;font-size:1.02rem}
+.hstep span{color:#b9cbe2;font-size:.9rem}
+.harrow{display:flex;align-items:center;color:#5f7fa6;font-size:1.6rem;font-weight:900}
+@media(max-width:860px){.how-flow{flex-direction:column}.harrow{transform:rotate(90deg);justify-content:center;padding:2px 0}}
 
 /* strip */
 .strip{background:var(--navy);color:#fff;border-radius:22px;padding:34px 30px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;box-shadow:var(--shadow-lg)}
@@ -240,19 +292,8 @@ footer{background:#fff;border-top:1px solid var(--line);color:var(--muted);paddi
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="sec" style="padding:44px 0 0">
-  <div class="wrap">
-    <div class="steps">
-      <div class="step reveal"><span class="sn">1</span><b>👆 Pick your service</b><span>Tap what your car needs below.</span></div>
-      <div class="step reveal"><span class="sn">2</span><b>📝 Send the quick form</b><span>Just your name, number, and car.</span></div>
-      <div class="step reveal"><span class="sn">3</span><b>📞 Lee calls you back</b><span>Within 24 working hours, no pressure.</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section class="sec" id="services">
+<!-- SERVICES (first thing after hero: reach help in seconds) -->
+<section class="sec" id="services" style="padding-top:56px">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="kick">🔧 What do you need?</div>
@@ -260,6 +301,25 @@ footer{background:#fff;border-top:1px solid var(--line);color:var(--muted);paddi
       <p>Tap what your car needs and send a quick request. Kwon Lee calls you back, fast.</p>
     </div>
     <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS (reassurance, after they have seen the services) -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="howband reveal">
+      <div class="how-head">
+        <div class="kick">⚡ How it works</div>
+        <h3>Three taps to a booked repair</h3>
+      </div>
+      <div class="how-flow">
+        <div class="hstep"><span class="hn">1</span><div><b>👆 Pick your service</b><span>Tap what your car needs.</span></div></div>
+        <div class="harrow">→</div>
+        <div class="hstep"><span class="hn">2</span><div><b>📝 Send the quick form</b><span>Name, number, and car.</span></div></div>
+        <div class="harrow">→</div>
+        <div class="hstep"><span class="hn">3</span><div><b>📞 Lee calls you back</b><span>Within 24 working hours.</span></div></div>
+      </div>
+    </div>
   </div>
 </section>
 
