@@ -128,23 +128,26 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop
 .sbtn.cl{background:#fff;color:var(--navy);border:1.5px solid var(--line)}
 .sbtn.cl:hover{border-color:var(--navy)}
 
-/* how it works band */
-.howband{background:linear-gradient(135deg,#0b1f3a,#12325c);border-radius:22px;padding:30px 34px;box-shadow:var(--shadow-lg);color:#fff}
+/* how it works band (light) */
+.howband{background:linear-gradient(135deg,#f5f8fd,#e7eff8);border:1px solid var(--line);border-radius:22px;padding:30px 34px;box-shadow:var(--shadow)}
 .how-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:20px}
-.how-head .kick{color:#ff8a92;font-weight:800;letter-spacing:.16em;text-transform:uppercase;font-size:.78rem}
-.how-head h3{font-size:1.4rem;font-weight:900;letter-spacing:-.4px;color:#fff}
+.how-head .kick{color:var(--red);font-weight:800;letter-spacing:.16em;text-transform:uppercase;font-size:.78rem}
+.how-head h3{font-size:1.4rem;font-weight:900;letter-spacing:-.4px;color:var(--navy)}
 .how-flow{display:flex;align-items:stretch;gap:14px}
-.hstep{flex:1;display:flex;align-items:flex-start;gap:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:16px 18px}
+.hstep{flex:1;display:flex;align-items:flex-start;gap:12px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow)}
 .hstep .hn{width:32px;height:32px;flex-shrink:0;border-radius:50%;background:var(--red);color:#fff;font-weight:900;display:grid;place-items:center;font-size:1rem}
-.hstep b{display:block;color:#fff;font-size:1.02rem}
-.hstep span{color:#b9cbe2;font-size:.9rem}
-.harrow{display:flex;align-items:center;color:#5f7fa6;font-size:1.6rem;font-weight:900}
+.hstep b{display:block;color:var(--navy);font-size:1.02rem}
+.hstep span{color:var(--muted);font-size:.9rem}
+.harrow{display:flex;align-items:center;color:var(--steel2);font-size:1.6rem;font-weight:900}
 @media(max-width:860px){.how-flow{flex-direction:column}.harrow{transform:rotate(90deg);justify-content:center;padding:2px 0}}
 
-/* strip */
-.strip{background:var(--navy);color:#fff;border-radius:22px;padding:34px 30px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;box-shadow:var(--shadow-lg)}
-.strip h3{font-size:1.5rem;font-weight:900;letter-spacing:-.5px}
-.strip p{color:#b9cbe2;margin-top:4px}
+/* strip (brand red CTA) */
+.strip{background:linear-gradient(135deg,#e11d2a,#b8151b);color:#fff;border-radius:22px;padding:34px 34px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;box-shadow:0 20px 44px rgba(224,31,38,.28);position:relative;overflow:hidden}
+.strip::after{content:"";position:absolute;width:280px;height:280px;border-radius:50%;background:#fff;opacity:.08;right:-40px;top:-90px;pointer-events:none}
+.strip h3{font-size:1.5rem;font-weight:900;letter-spacing:-.5px;position:relative}
+.strip p{color:rgba(255,255,255,.9);margin-top:4px;position:relative}
+.btn-white{background:#fff;color:var(--red);box-shadow:0 10px 26px rgba(0,0,0,.18);position:relative}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(0,0,0,.24)}
 
 /* why */
 .why{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -331,7 +334,7 @@ footer{background:#fff;border-top:1px solid var(--line);color:var(--muted);paddi
         <h3>🤔 Not sure what is wrong?</h3>
         <p>Tell us what your car is doing. We will figure it out.</p>
       </div>
-      <a class="btn btn-red" href="tel:+17146806205">📞 Call (714) 680 6205</a>
+      <a class="btn btn-white" href="tel:+17146806205">📞 Call (714) 680 6205</a>
     </div>
   </div>
 </section>
