@@ -2,6 +2,7 @@
 // One lightweight WebGL context per canvas, drag to rotate, gentle float, pauses when offscreen.
 import * as THREE from 'three';
 import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
+import { RoundedBoxGeometry } from 'three/examples/jsm/geometries/RoundedBoxGeometry.js';
 const REDUCE=matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 const M={
@@ -25,6 +26,40 @@ export const BUILD={
    const spokeGeo=new THREE.BoxGeometry(0.3,1.55,0.17);for(let i=0;i<5;i++){const a=i/5*Math.PI*2;for(const off of[-0.17,0.17]){const s=new THREE.Mesh(spokeGeo,steel);s.position.set(Math.cos(a)*0.92+Math.cos(a+Math.PI/2)*off,Math.sin(a)*0.92+Math.sin(a+Math.PI/2)*off,0.33);s.rotation.z=a-Math.PI/2;g.add(s);}}
    const disc=cyl(1.58,1.58,0.12,new THREE.MeshStandardMaterial({color:0x3a3f49,metalness:.95,roughness:.3}),48);disc.rotation.x=Math.PI/2;disc.position.z=-0.06;g.add(disc);
    g.rotation.x=-0.2;g.userData.spin='z';return g;},
+ car(o){const g=new THREE.Group();const c=new THREE.Group();
+   const paint=new THREE.MeshPhysicalMaterial({color:o.accent||0xe11d2a,metalness:.55,roughness:.26,clearcoat:1,clearcoatRoughness:.12});
+   const glass=new THREE.MeshPhysicalMaterial({color:0x0a1420,metalness:.5,roughness:.06,clearcoat:1});
+   const rubber=M.rubber();const rim=M.steel();const chrome=M.chrome();const trim=M.dark();
+   const rbox=(w,h,d,r,m,x,y,z)=>{const e=new THREE.Mesh(new RoundedBoxGeometry(w,h,d,4,r),m);e.position.set(x||0,y||0,z||0);return e;};
+   // body: soft rounded masses so it reads sleek, not blocky
+   c.add(rbox(5.0,0.62,2.06,0.24,paint,0,0.16,0));      // lower sill
+   c.add(rbox(4.8,0.74,1.98,0.32,paint,0,0.66,0));       // main body
+   c.add(rbox(1.9,0.5,1.9,0.26,paint,1.65,0.5,0));       // hood, dropped at the nose
+   // greenhouse: cabin, dark glass band, thin roof
+   c.add(rbox(2.5,0.9,1.72,0.36,paint,-0.35,1.3,0));     // cabin shell
+   c.add(rbox(2.36,0.62,1.8,0.22,glass,-0.35,1.34,0));   // wraparound glass
+   c.add(rbox(2.14,0.2,1.52,0.1,paint,-0.4,1.78,0));     // roof cap
+   c.add(box(0.16,0.6,1.82,paint,-1.44,1.34,0));         // C pillar
+   c.add(box(0.16,0.6,1.82,paint,0.66,1.34,0));          // A pillar
+   // front: grille, headlights, bumper
+   c.add(box(0.12,0.34,1.24,trim,2.55,0.5,0));
+   const hl=new THREE.MeshStandardMaterial({color:0xeaf2ff,metalness:.3,roughness:.14,emissive:0x9fb4cc,emissiveIntensity:.4});
+   [0.66,-0.66].forEach(z=>c.add(rbox(0.16,0.24,0.52,0.07,hl,2.5,0.66,z)));
+   c.add(box(0.1,0.22,1.7,trim,2.56,0.18,0));            // bumper lip
+   // rear tail lights
+   const tl=new THREE.MeshStandardMaterial({color:0xff2a2a,emissive:0x7c0000,emissiveIntensity:.85,roughness:.4});
+   [0.72,-0.72].forEach(z=>c.add(rbox(0.12,0.24,0.46,0.05,tl,-2.44,0.72,z)));
+   // wheels with real spoked rims (axle along z)
+   const mkWheel=(x,z)=>{const w=new THREE.Group();const out=z>0?1:-1;
+     w.add(new THREE.Mesh(new THREE.TorusGeometry(0.6,0.23,18,36),rubber));
+     const barrel=cyl(0.45,0.45,0.42,trim,32);barrel.rotation.x=Math.PI/2;w.add(barrel);
+     const face=new THREE.Mesh(new THREE.CircleGeometry(0.47,32),rim);face.position.z=0.2*out;face.rotation.y=out>0?0:Math.PI;w.add(face);
+     const hub=cyl(0.13,0.13,0.5,rim,20);hub.rotation.x=Math.PI/2;w.add(hub);
+     for(let i=0;i<5;i++){const a=i/5*Math.PI*2;const sp=box(0.11,0.42,0.09,rim,Math.cos(a)*0.25,Math.sin(a)*0.25,0.17*out);sp.rotation.z=a;w.add(sp);}
+     w.position.set(x,-0.2,z);return w;};
+   [[1.55,1.03],[1.55,-1.03],[-1.55,1.03],[-1.55,-1.03]].forEach(([x,z])=>c.add(mkWheel(x,z)));
+   c.rotation.y=-0.55;g.add(c);                          // face the front 3/4 toward the viewer
+   g.userData.spin='sway';g.userData.scale=0.94;return g;},
  piston(o){const g=new THREE.Group();const steel=M.steel(),dark=M.dark();const rod=M.leather(o.accent||0x1f4e8c);rod.metalness=.6;rod.roughness=.3;
    const head=cyl(1.15,1.15,1.3,steel,40);head.position.y=1.5;g.add(head);
    for(let i=0;i<3;i++){const ring=new THREE.Mesh(new THREE.TorusGeometry(1.16,0.06,10,44),dark);ring.rotation.x=Math.PI/2;ring.position.y=1.9-i*0.26;g.add(ring);}
