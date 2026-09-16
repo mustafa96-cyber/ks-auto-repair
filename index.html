@@ -253,8 +253,12 @@ footer{background:#fff;border-top:1px solid var(--line);color:var(--muted);paddi
 .callbar .btn{flex:1;justify-content:center}
 
 @media(max-width:860px){
-  .hero-grid{grid-template-columns:1fr;min-height:auto;padding:26px 0 34px}
-  #wheelwrap{height:300px;order:-1}
+  .hero-grid{grid-template-columns:1fr;min-height:auto;padding:16px 0 26px;gap:12px}
+  #wheelwrap{height:200px;order:2;margin-top:4px}
+  .hero .eyebrow{font-size:.72rem;padding:7px 12px;margin-bottom:14px}
+  .hero p.sub{font-size:1.04rem;margin:14px 0 20px}
+  .hero-cta .btn{flex:1;justify-content:center}
+  .certs{margin-top:18px}
   .grid{grid-template-columns:1fr 1fr;gap:12px}
   .why{grid-template-columns:1fr}
   .contact{grid-template-columns:1fr}
@@ -265,7 +269,13 @@ footer{background:#fff;border-top:1px solid var(--line);color:var(--muted);paddi
   body{padding-bottom:70px}
   .sec{padding:48px 0}
 }
-@media(max-width:520px){.grid{grid-template-columns:1fr}}
+@media(max-width:520px){
+  .grid{grid-template-columns:1fr}
+  .card{padding:18px 18px}
+  .card .ic{width:48px;height:48px;font-size:25px;margin-bottom:12px}
+  .card p{min-height:0}
+  .sec-head{margin-bottom:26px}
+}
 </style>
 </head>
 <body>
